@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Carbon\Carbon;
+use Doctrine\Inflector\Rules\English\Rules;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class HomeController extends Controller
 {
@@ -44,12 +46,14 @@ class HomeController extends Controller
 
     public function ustore(Request $request)
     {
-        // $request->validate([
-        //     'name' => ['required', 'string', 'max:255'],
-        //     'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
-        //     // 'password' => ['required', 'confirmed', Rules\Password::defaults()],
-        // ]);
-
+        $validator = Validator::make($request->all(), [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'], // Use 'users' table for uniqueness check
+            'password' => ['required', 'min:8'],
+        ]);
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 422); // 422 Unprocessable Entity for validation failure
+        }
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,

@@ -21,8 +21,11 @@ Route::get('/productsapi/{id}', [ProductController::class, 'showapi']);
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::middleware(['cors'])->group(function(){
-    Route::post('/userstore', [HomeController::class, 'ustore']);
+Route::post('/userstore', [HomeController::class, 'ustore']);
 
-});
+
+
+
+Route::post('/login', 'AuthController@login');
+Route::post('/logout', 'AuthController@logout');
 
