@@ -62,6 +62,6 @@ class HomeController extends Controller
 
       
 
-        return response()->json(['message' => 'Form data submitted successfully'], 200);
+        return response()->json(['success' => 'Form data submitted successfully'], 200);
     }
 }
