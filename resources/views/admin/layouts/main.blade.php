@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>TestBD Admin</title>
+    <title>Trend-Bazar</title>
     <link rel="icon" href="{{asset('assets/img/icon.png')}}" type="image/png">
     {{-- CSRF --}}
     <meta name="csrf-token" content="<?php echo csrf_token(); ?>" id="token">

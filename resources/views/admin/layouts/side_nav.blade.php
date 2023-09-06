@@ -23,6 +23,9 @@
                         <a href="{{ url('user') }}" class="nav-link" rel="noopener noreferrer">
                             <div class="sb-nav-link-icon"><i class="fa-brands fa-mendeley fa-beat-fade"></i></div>Users
                         </a>
+                        <a href="{{ url('category') }}" class="nav-link" rel="noopener noreferrer">
+                            <div class="sb-nav-link-icon"><i class="fa-brands fa-mendeley fa-beat-fade"></i></div>Category
+                        </a>
                         {{-- <a href="{{ url('board') }}" class="nav-link" rel="noopener noreferrer">
                             <div class="sb-nav-link-icon"><i class="fa-brands fa-mendeley fa-beat-fade"></i></div>Board
                         </a>
@@ -42,9 +45,7 @@
                         <a href="{{ url('order') }}" class="nav-link" rel="noopener noreferrer">
                             <div class="sb-nav-link-icon"><i class="fa-brands fa-mendeley fa-beat-fade"></i></div>Order Management
                         </a>
-                        <a href="{{ url('category') }}" class="nav-link" rel="noopener noreferrer">
-                            <div class="sb-nav-link-icon"><i class="fa-brands fa-mendeley fa-beat-fade"></i></div>Academic Class or Sector
-                        </a>
+                       
                         <a href="{{ url('subcategory') }}" class="nav-link" rel="noopener noreferrer">
                             <div class="sb-nav-link-icon"><i class="fa-brands fa-mendeley fa-beat-fade"></i></div>Subjects
                         </a>

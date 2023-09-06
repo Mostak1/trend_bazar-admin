@@ -2,7 +2,7 @@
 @section('content')
     <div class="card card-hover shadow mb-4">
         <div class="card-header py-3 d-flex justify-content-between">
-            <h4 class="m-0 font-weight-bold text-info"> Add Class</h4>
+            <h4 class="m-0 font-weight-bold text-info"> Adding Category</h4>
             <a href="{{ url('category') }}" class="btn btn-info  btn-sm" title="Back to Class List">
                 <i class="fas fa-arrow-left"></i>
             </a>
@@ -25,7 +25,7 @@
                 </div>
                 <div class="col-sm-4">
                     <label for="active" class="form-label">Set Sector:</label>
-                    {!! Form::select('active', [1 => 'Academic', 2 => ' Skill Development', 3 => 'Competitive Exam'], null, [
+                    {!! Form::select('active', [1 => 'Active', 2 => 'Deactive'], null, [
                         'required',
                         'class' => 'form-control form-control-profile',
                         'id' => 'active',
@@ -34,11 +34,7 @@
                         'placeholder' => 'Active Field',
                     ]) !!}
                 </div>
-                <div class="col-sm-4">
-                    <label for="image" class="form-label">Input Image:</label>
-                        {!! Form::file('image', ['class' => 'form-control', 'id' => 'image', 'title' => 'Category Picture']) !!}
-                    
-                </div>
+               
             </div>
 
             <div class="form-group mt-3 row">
@@ -52,16 +48,7 @@
                         'placeholder' => 'Description',
                     ]) !!}
                 </div>
-                <div class="col-sm-6 mb-3 mb-sm-0">
-                    <label for="price" class="form-label">Price:</label>
-                    {!! Form::number('price', null, [
-                        'required',
-                        'class' => 'form-control form-control-profile',
-                        'id' => 'price',
-                    
-                        'placeholder' => 'Price',
-                    ]) !!}
-                </div>
+                
             </div>
 
             <div class="form-group">
