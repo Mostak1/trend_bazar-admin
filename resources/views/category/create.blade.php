@@ -52,7 +52,7 @@
             </div>
 
             <div class="form-group">
-                {!! Form::submit('Add Class', ['class' => 'my-3 btn btn-info']) !!}
+                {!! Form::submit('Add Category', ['class' => 'my-3 btn btn-info']) !!}
             </div>
             {!! Form::close() !!}
         </div>

@@ -26,47 +26,10 @@
                         <a href="{{ url('category') }}" class="nav-link" rel="noopener noreferrer">
                             <div class="sb-nav-link-icon"><i class="fa-brands fa-mendeley fa-beat-fade"></i></div>Category
                         </a>
-                        {{-- <a href="{{ url('board') }}" class="nav-link" rel="noopener noreferrer">
-                            <div class="sb-nav-link-icon"><i class="fa-brands fa-mendeley fa-beat-fade"></i></div>Board
-                        </a>
-                        <a href="{{ url('district') }}" class="nav-link" rel="noopener noreferrer">
-                            <div class="sb-nav-link-icon"><i class="fa-brands fa-mendeley fa-beat-fade"></i></div>District
-                        </a>
-                        <a href="{{ url('thana') }}" class="nav-link" rel="noopener noreferrer">
-                            <div class="sb-nav-link-icon"><i class="fa-brands fa-mendeley fa-beat-fade"></i></div>Thana
-                        </a>
-                        <a href="{{ url('institute') }}" class="nav-link" rel="noopener noreferrer">
-                            <div class="sb-nav-link-icon"><i class="fa-brands fa-mendeley fa-beat-fade"></i></div>Institute
-                        </a>
-                        <a href="{{ url('question') }}" class="nav-link" rel="noopener noreferrer">
-                            <div class="sb-nav-link-icon"><i class="fa-brands fa-mendeley fa-beat-fade"></i></div>Question
-                        </a>
-                       
-                        <a href="{{ url('order') }}" class="nav-link" rel="noopener noreferrer">
-                            <div class="sb-nav-link-icon"><i class="fa-brands fa-mendeley fa-beat-fade"></i></div>Order Management
-                        </a>
-                       
                         <a href="{{ url('subcategory') }}" class="nav-link" rel="noopener noreferrer">
-                            <div class="sb-nav-link-icon"><i class="fa-brands fa-mendeley fa-beat-fade"></i></div>Subjects
+                            <div class="sb-nav-link-icon"><i class="fa-brands fa-mendeley fa-beat-fade"></i></div>Brand
                         </a>
-                        <a href="{{ url('topic') }}" class="nav-link" rel="noopener noreferrer">
-                            <div class="sb-nav-link-icon"><i class="fa-brands fa-mendeley fa-beat-fade"></i></div>Topic
-                        </a>
-                        <a href="{{ url('quiz') }}" class="nav-link" rel="noopener noreferrer">
-                            <div class="sb-nav-link-icon"><i class="fa-brands fa-mendeley fa-beat-fade"></i></div>Quiz
-                        </a>
-                        <a href="{{ url('quizset') }}" class="nav-link" rel="noopener noreferrer">
-                            <div class="sb-nav-link-icon"><i class="fa-brands fa-mendeley fa-beat-fade"></i></div>Quizset
-                        </a>
-                        <a href="{{ url('leaderboard') }}" class="nav-link" rel="noopener noreferrer">
-                            <div class="sb-nav-link-icon"><i class="fa-brands fa-mendeley fa-beat-fade"></i></div>Leaderboard
-                        </a>
-                        <a href="{{ url('detail') }}" class="nav-link" rel="noopener noreferrer">
-                            <div class="sb-nav-link-icon"><i class="fa-brands fa-mendeley fa-beat-fade"></i></div>Topic Detail
-                        </a>
-                        <a href="{{ url('enroll') }}" class="nav-link" rel="noopener noreferrer">
-                            <div class="sb-nav-link-icon"><i class="fa-brands fa-mendeley fa-beat-fade"></i></div>Enroll
-                        </a> --}}
+                        
                     </nav>
                 </div>
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages"

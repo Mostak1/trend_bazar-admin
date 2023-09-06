@@ -1,10 +1,11 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
-use App\Models\Subcategory;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 
@@ -16,7 +17,9 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::all();
-        return view('category.index', compact('categories'))->with('user', Auth::user());
+        $data = DB::table('categories')->get();
+        // dd($categories);
+        return view('category.index', compact('categories'));
     }
 
     /**
@@ -76,12 +79,11 @@ class CategoryController extends Controller
     {
         if ($request->hasFile('image')) {
             if ($category->image) {
-                $exfile=$category->image;
+                $exfile = $category->image;
                 $filePath = public_path('/assets/img/category/') . $exfile; // Change this to the actual path of the image you want to delete
-                
+
                 if (File::exists($filePath)) {
                     File::delete($filePath);
-                   
                 }
                 Storage::delete($category->image);
             }
@@ -118,5 +120,8 @@ class CategoryController extends Controller
             return back()->with('error', 'Delete Failed!');
         }
     }
-   
+    public function catapi(){
+        $cat = Category::all();
+        return response()->json($cat);
+    }
 }

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Category extends Model
+class Subcategory extends Model
 {
     use HasFactory;
     use SoftDeletes;
@@ -14,10 +14,7 @@ class Category extends Model
     protected $fillable = [
         'name', 'description', 'active'
     ];
-    public function subcategories(){
-        return $this->hasMany(Subcategory::class);
-    }
-    public function products(){
-        return $this->hasMany(Product::class);
+    public function category(){
+        return $this->belongsTo(Category::class);
     }
 }

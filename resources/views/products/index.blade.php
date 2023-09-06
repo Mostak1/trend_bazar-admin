@@ -3,9 +3,9 @@
     <div class="card card-hover shadow mb-4">
         <!-- Card Header - Dropdown -->
         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-            <h4 class="m-0 font-weight-bold text-info">List of Product Category</h4>
+            <h4 class="m-0 font-weight-bold text-info">List of Products</h4>
             <div class="">
-                <a class="btn btn-sm btn-info" href="{{ url('category/create') }}">
+                <a class="btn btn-sm btn-info" href="{{ url('product/create') }}">
                     <i class="fa-solid fa-plus"></i>
                     Add
                 </a>
@@ -40,30 +40,30 @@
                         </tr>
                     </tfoot>
                     <tbody>
-                        @foreach ($categories as $category)
+                        @foreach ($products as $product)
                             <tr>
-                                <td>{{ $category->id }}</td>
-                                <td>{{ $category->name }}</td>
+                                <td>{{ $product->id }}</td>
+                                <td>{{ $product->name }}</td>
                                 <td>
-                                    {{ $category->active }}
+                                    {{ $product->active }}
 
 
                                 </td>
-                                <td>{{ $category->description }}</td>
+                                <td>{{ $product->description }}</td>
                                 <td class="skip d-flex justify-content-center">
-                                    {!! Form::open(['method' => 'delete', 'route' => ['category.destroy', $category->id], 'id' => 'deleteform']) !!}
+                                    {!! Form::open(['method' => 'delete', 'route' => ['product.destroy', $product->id], 'id' => 'deleteform']) !!}
                                     <a href="javascript:void(0)" class="btn btn-danger  btn-sm" title="Delete"
                                         onclick="event.preventDefault();if (!confirm('Are you sure?')) return; document.getElementById('deleteform').submit();">
                                         <i class="fa-solid fa-trash-can"></i>
                                     </a>
                                     {!! Form::close() !!}
                                     &nbsp;
-                                    <a href="{{ url('category/' . $category->id . '/edit') }}" class="btn btn-info  btn-sm"
+                                    <a href="{{ url('product/' . $product->id . '/edit') }}" class="btn btn-info  btn-sm"
                                         title="Edit">
                                         <i class="fas fa-edit"></i>
                                     </a>
                                     &nbsp;
-                                    <a href="{{ url('category/' . $category->id) }}" class="btn btn-info  btn-sm"
+                                    <a href="{{ url('product/' . $product->id) }}" class="btn btn-info  btn-sm"
                                         title="View">
                                         <i class="fas fa-eye"></i>
                                     </a>

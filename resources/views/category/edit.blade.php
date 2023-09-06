@@ -29,7 +29,7 @@
                 </div>
                 <div class="col-sm-4">
                     <label for="active" class="form-label">Set Sector:</label>
-                    {!! Form::select('active', [1 => 'Academic', 2 => ' Skill Development', 3 => 'Competitive Exam'], null, [
+                    {!! Form::select('active', [1 => 'Active', 2 => 'Deactive'], null, [
                         'required',
                         'class' => 'form-control form-control-profile',
                         'id' => 'active',
@@ -38,11 +38,7 @@
                         'placeholder' => 'Active Field',
                     ]) !!}
                 </div>
-                <div class="col-sm-4">
-                    <label for="image" class="form-label">Input Image:</label>
-                        {!! Form::file('image', ['class' => 'form-control', 'id' => 'image', 'title' => 'Category Picture']) !!}
-                    
-                </div>
+               
             </div>
 
             <div class="form-group mt-3 row">
@@ -56,20 +52,11 @@
                         'placeholder' => 'Description',
                     ]) !!}
                 </div>
-                <div class="col-sm-6 mb-3 mb-sm-0">
-                    <label for="price" class="form-label">Price:</label>
-                    {!! Form::number('price', null, [
-                        'required',
-                        'class' => 'form-control form-control-profile',
-                        'id' => 'price',
-                    
-                        'placeholder' => 'Price',
-                    ]) !!}
-                </div>
+                
             </div>
 
             <div class="form-group">
-                {!! Form::submit('Update Class', ['class' => 'mt-3 btn btn-info btn-profile btn-block']) !!}
+                {!! Form::submit('Update Category', ['class' => 'mt-3 btn btn-info btn-profile btn-block']) !!}
             </div>
             {!! Form::close() !!}
         </div>
