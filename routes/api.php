@@ -28,6 +28,13 @@ Route::post('/userstore', [HomeController::class, 'ustore']);
 
 
 
-Route::post('/login', 'AuthController@login');
-Route::post('/logout', 'AuthController@logout');
+Route::controller(AuthController::class)->group(function () {
+    Route::post('login', 'login');
+    Route::post('register', 'register');
+    Route::post('logout', 'logout');
+    Route::post('refresh', 'refresh');
+});
+
+// Route::post('/login', 'AuthController@login');
+// Route::post('/logout', 'AuthController@logout');
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Services\CategoryService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -14,6 +15,11 @@ class CategoryController extends Controller
     /**
      * Display a listing of the resource.
      */
+    protected $categoryService;
+    public function __construct(CategoryService $categoryService)
+    {
+        $this->categoryService = $categoryService;
+    }
     public function index()
     {
         $categories = Category::all();
@@ -35,25 +41,33 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        if ($request->hasFile('image')) {
-            $file = $request->file('image');
-            $extention = $file->extension();
-            $qid  = Category::all()->last()->id;
-            $filename = $request->name . '.' . $extention;
-            $request->image->move(public_path('/assets/img/category/'), $filename);
+        $data = $request->all();
+        $result = $this->categoryService->createCategory($request, $data);
+    
+        if ($result) {
+            return back()->with('success', 'Category created successfully!');
+        } else {
+            return back()->with('error', 'Category creation failed!');
         }
-        $data = [
-            'name' => $request->name,
-            'description' => $request->description,
-            'price' => $request->price,
-            'image' => $filename ?? '',
-            'active' => $request->active,
-        ];
-        // dd($data);
-        $cat = Category::create($data);
-        if ($cat) {
-            return back()->with('success', 'Category ' . $cat->id . ' has been created Successfully!');
-        }
+        // if ($request->hasFile('image')) {
+        //     $file = $request->file('image');
+        //     $extention = $file->extension();
+        //     $qid  = Category::all()->last()->id;
+        //     $filename = $request->name . '.' . $extention;
+        //     $request->image->move(public_path('/assets/img/category/'), $filename);
+        // }
+        // $data = [
+        //     'name' => $request->name,
+        //     'description' => $request->description,
+        //     'price' => $request->price,
+        //     'image' => $filename ?? '',
+        //     'active' => $request->active,
+        // ];
+        // // dd($data);
+        // $cat = Category::create($data);
+        // if ($cat) {
+        //     return back()->with('success', 'Category ' . $cat->id . ' has been created Successfully!');
+        // }
     }
 
     /**
@@ -77,32 +91,11 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        if ($request->hasFile('image')) {
-            if ($category->image) {
-                $exfile = $category->image;
-                $filePath = public_path('/assets/img/category/') . $exfile; // Change this to the actual path of the image you want to delete
+       
+        $data = $request->all();
+        $result = $this->categoryService->updateCategory($category, $request, $data);
 
-                if (File::exists($filePath)) {
-                    File::delete($filePath);
-                }
-                Storage::delete($category->image);
-            }
-            $file = $request->file('image');
-            $extention = $file->extension();
-            $qid  = $category->name;
-            $filename = $qid . '.' . $extention;
-            $request->image->move(public_path('/assets/img/category/'), $filename);
-        }
-        $data = [
-            'name' => $request->name,
-            'description' => $request->description,
-            'price' => $request->price,
-            'image' => $filename ?? $category->image,
-            'active' => $request->active,
-        ];
-
-        $category->update($data);
-        if ($category->save()) {
+        if ($result) {
             return back()->with('success', "Update Successfully!");
         } else {
             return back()->with('error', "Update Failed!");
